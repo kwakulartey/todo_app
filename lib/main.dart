@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:todo_app/home_view.dart';
+import 'package:todo_app/utiles.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,11 +15,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-          appBarTheme: const AppBarTheme(
+          appBarTheme:  AppBarTheme(
               backgroundColor: Colors.white,
-              iconTheme: IconThemeData(color: Colors.blue),
+              iconTheme: IconThemeData(color: customBlue),
               titleTextStyle:
-                  TextStyle(color: Colors.blue, fontWeight: FontWeight.w600, fontSize: 25))),
+                  TextStyle(color: customBlue, fontWeight: FontWeight.w600, fontSize: 25))),
       darkTheme: ThemeData(
           appBarTheme: const AppBarTheme(
               backgroundColor: Colors.black,

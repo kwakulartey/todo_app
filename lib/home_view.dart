@@ -2,6 +2,7 @@ import 'dart:html';
 import 'dart:ui';
 
 import "package:flutter/material.dart";
+import 'package:todo_app/utiles.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -41,26 +42,27 @@ class HomeView extends StatelessWidget {
               const SizedBox(
                 width: 10,
               ),
-              Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Plan a trip to finland',
-                    style: TextStyle(
-                        fontWeight: FontWeight.w600,
-                        color: Color.fromRGBO(37, 43, 103, 1)),
-                  ),
-                  const SizedBox(
-                    height: 5,
-                  ),
-                  Text(
-                    'Bird and friends are waiting for you.',
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(color: Colors.grey, fontSize: 16),
-                  )
-                ],
+              Expanded(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Plan a trip to Finland',
+                      style: TextStyle(
+                          fontWeight: FontWeight.w600, color: customBlue),
+                    ),
+                    const SizedBox(
+                      height: 5,
+                    ),
+                    Text(
+                      'Katty and friends are waiting for you. I seriously need a new car. Katty and friends are waiting for you. I seriously need a new car',
+                      maxLines: 3,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(color: Colors.grey, fontSize: 16),
+                    )
+                  ],
+                ),
               ),
               const SizedBox(
                 width: 25,
@@ -91,12 +93,37 @@ class HomeView extends StatelessWidget {
       bottomNavigationBar: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
-          child: Material(borderRadius: (BorderRadius.circular(10)),
+          child: Material(
+            borderRadius: (BorderRadius.circular(10)),
             color: const Color.fromRGBO(37, 43, 103, 0.4),
             child: Padding(
               padding: const EdgeInsets.all(15.0),
               child: Row(
-                children: [Icon(Icons.check_circle_rounded)],
+                children: [
+                  Icon(
+                    Icons.check_circle_rounded,
+                    color: customBlue,
+                  ),
+                  const SizedBox(width: 10),
+                  Row(
+                    children: [
+                      Text('Completed',
+                          style: TextStyle(
+                            color: customBlue,
+                            fontWeight: FontWeight.w600,
+                          )),
+                      Icon(
+                        Icons.keyboard_arrow_down,
+                        color: customBlue,
+                      ),
+                    ],
+                  ),
+                  const Spacer(),
+                  Text(
+                    '24',
+                    style: TextStyle(color: customBlue),
+                  ),
+                ],
               ),
             ),
           ),
