@@ -1,5 +1,3 @@
-
-
 import "package:flutter/material.dart";
 import 'package:todo_app/utiles.dart';
 import 'package:todo_app/views/create_todo.dart';
@@ -32,16 +30,19 @@ class HomeView extends StatelessWidget {
           )
         ],
       ),
-      body: ListView.separated(itemBuilder: (context, index){
-        return const TodoTileView();
-      }, separatorBuilder: (context, index){
-        return const SizedBox(
-          height: 15,
-        );
-      }, itemCount: 5),
+      body: ListView.separated(
+          itemBuilder: (context, index) {
+            return const TodoTileView();
+          },
+          separatorBuilder: (context, index) {
+            return const SizedBox(
+              height: 15,
+            );
+          },
+          itemCount: 5),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.of(context).push(MaterialPageRoute(builder: (context){
+          Navigator.of(context).push(MaterialPageRoute(builder: (context) {
             return const CreateTodoView();
           }));
         },
@@ -111,22 +112,29 @@ class CompletedTodoWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: ListTile(
-        leading: (Icon(Icons.check_circle_rounded,color: customBlue,)),
-        title:Text('Plan A trip to Finland',
-        style: TextStyle(fontWeight: FontWeight.w600, color: customBlue),),
+        leading: (Icon(
+          Icons.check_circle_rounded,
+          color: customBlue,
+        )),
+        title: Text(
+          'Plan A trip to Finland',
+          style: TextStyle(fontWeight: FontWeight.w600, color: customBlue),
+        ),
         subtitle: Text(
           'Katty and friends are waiting for you. I seriously need a new car. Katty and friends are waiting for you. I seriously need a new car',
-          style:
-              TextStyle(color: Colors.grey, fontSize: 16,),
+          style: TextStyle(
+            color: Colors.grey,
+            fontSize: 16,
+          ),
         ),
-        trailing: Row( mainAxisSize: MainAxisSize.min,
-          children:[
-            Icon(Icons.notifications, color: customBlue),
-            Text('yesterday', 
-            style: TextStyle(color: customBlue,fontSize: 16,)
-            )]
-          )
-        ,
+        trailing: Row(mainAxisSize: MainAxisSize.min, children: [
+          Icon(Icons.notifications, color: customBlue),
+          Text('yesterday',
+              style: TextStyle(
+                color: customBlue,
+                fontSize: 16,
+              ))
+        ]),
       ),
     );
   }
