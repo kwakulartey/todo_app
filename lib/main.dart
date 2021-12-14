@@ -15,22 +15,23 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-          appBarTheme:  AppBarTheme(
+          appBarTheme: AppBarTheme(
               backgroundColor: Colors.white,
               iconTheme: IconThemeData(color: customBlue),
-              titleTextStyle:
-                  TextStyle(color: customBlue, fontWeight: FontWeight.w600, fontSize: 25))),
+              titleTextStyle: TextStyle(
+                  color: customBlue,
+                  fontWeight: FontWeight.w600,
+                  fontSize: 25))),
       darkTheme: ThemeData(
           appBarTheme: const AppBarTheme(
               backgroundColor: Colors.black,
               iconTheme: IconThemeData(color: Colors.white),
               titleTextStyle: TextStyle(
                 color: Colors.white,
-                fontWeight: FontWeight.w600, fontSize: 25,
-              )
-              )
-              ),
-              themeMode: ThemeMode.system,
+                fontWeight: FontWeight.w600,
+                fontSize: 25,
+              ))),
+      themeMode: ThemeMode.system,
       home: HomeView(),
     );
   }

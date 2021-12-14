@@ -23,19 +23,19 @@ class _CreateTodoViewState extends State<CreateTodoView> {
               keyboardType: TextInputType.text,
               textCapitalization: TextCapitalization.sentences,
               decoration: InputDecoration(
-                label: Text('Title'),
+                label: const Text('Title'),
                 hintText: 'please input your title here',
                 floatingLabelBehavior: FloatingLabelBehavior.never,
                 focusedBorder: UnderlineInputBorder(
                     borderSide: BorderSide(color: customBlue)),
               )),
-          SizedBox(height: 15),
+          const SizedBox(height: 15),
           TextFormField(
             keyboardType: TextInputType.multiline,
             textCapitalization: TextCapitalization.sentences,
             maxLines: 5,
             decoration: InputDecoration(
-                label: Text('Description'),
+                label: const Text('Description'),
                 hintText: 'please enter a description',
                 floatingLabelBehavior: FloatingLabelBehavior.never,
                 focusedBorder: UnderlineInputBorder(
@@ -85,11 +85,11 @@ class _CreateTodoViewState extends State<CreateTodoView> {
                         borderSide: BorderSide(color: customBlue))),
               ))
             ],
-          ),const SizedBox(
-            height: 35),
+          ),
+          const SizedBox(height: 35),
           TextButton(
               onPressed: () {},
-              child: Text(
+              child: const Text(
                 'Create Todo',
                 style: TextStyle(color: Colors.white),
               ),

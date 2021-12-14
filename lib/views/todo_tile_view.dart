@@ -14,7 +14,7 @@ class TodoTileView extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: Row(
           children: [
-            Icon(
+            const Icon(
               Icons.check_circle_outline,
               color: Colors.pink,
             ),
@@ -34,7 +34,7 @@ class TodoTileView extends StatelessWidget {
                   const SizedBox(
                     height: 5,
                   ),
-                  Text(
+                  const Text(
                     'Katty and friends are waiting for you. I seriously need a new car. Katty and friends are waiting for you. I seriously need a new car',
                     maxLines: 3,
                     overflow: TextOverflow.ellipsis,
@@ -47,7 +47,7 @@ class TodoTileView extends StatelessWidget {
               width: 25,
             ),
             Row(
-              children: [
+              children: const [
                 Icon(
                   Icons.notifications,
                   color: Colors.pink,
@@ -62,4 +62,5 @@ class TodoTileView extends StatelessWidget {
         ),
       ),
     );
-  }}
+  }
+}
