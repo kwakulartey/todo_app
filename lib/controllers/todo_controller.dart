@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:http/http.dart';
 import 'package:todo_app/models/todo.dart';
 import 'package:todo_app/services/todo_services.dart';
 
@@ -8,7 +9,7 @@ class TodoController {
 
   Future<Todo?> getAllTodos() async {
     Todo? _todo;
-
+// get
     await _todoServices.getAllTodosRequest().then((response) {
       int statusCode = response.statusCode;
       if (statusCode == 200) {
@@ -49,7 +50,7 @@ class TodoController {
     return isSuccessful = false;
   }
 
-  // del ete Todo
+  // delete Todo
   Future<bool> deleteTodo(String id) async {
     bool isDeleted = false;
     await _todoServices.deleteTodoRequest(id).then((response) {
@@ -65,5 +66,25 @@ class TodoController {
       isDeleted = false;
     });
     return isDeleted = false;
+  }
+
+  // Update Todo
+  Future<bool> updateTOdo({required bool status, required String id}) async {
+    bool isUpdated = false;
+    await _todoServices
+        .updateTodoRequest(status: status, id: id)
+        .then((response) {
+      int statusCode = response.statusCode;
+      if (statusCode == 201) {
+// success
+        isUpdated = true;
+      } else {
+        // failure
+        isUpdated = false;
+      }
+    }).catchError((onError) {
+      isUpdated = false;
+    });
+    return isUpdated;
   }
 }

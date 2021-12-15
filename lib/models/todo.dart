@@ -17,23 +17,23 @@ class Todo {
 
   bool status;
   String message;
-  Data data;
+  List<Datum> data;
 
   factory Todo.fromMap(Map<String, dynamic> json) => Todo(
         status: json["status"],
         message: json["message"],
-        data: Data.fromMap(json["data"]),
+        data: List<Datum>.from(json["data"].map((x) => Datum.fromMap(x))),
       );
 
   Map<String, dynamic> toMap() => {
         "status": status,
         "message": message,
-        "data": data.toMap(),
+        "data": List<dynamic>.from(data.map((x) => x.toMap())),
       };
 }
 
-class Data {
-  Data({
+class Datum {
+  Datum({
     required this.title,
     required this.description,
     required this.dateTime,
@@ -49,7 +49,7 @@ class Data {
   String id;
   int v;
 
-  factory Data.fromMap(Map<String, dynamic> json) => Data(
+  factory Datum.fromMap(Map<String, dynamic> json) => Datum(
         title: json["title"],
         description: json["description"],
         dateTime: json["date_time"],

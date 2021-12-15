@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app/utiles.dart';
+import 'package:todo_app/models/todo.dart';
 
 class TodoTileView extends StatelessWidget {
   const TodoTileView({
     Key? key,
+    required this.todo,
   }) : super(key: key);
+  final Datum todo;
 
   @override
   Widget build(BuildContext context) {
@@ -14,9 +17,9 @@ class TodoTileView extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: Row(
           children: [
-            const Icon(
+            Icon(
               Icons.check_circle_outline,
-              color: Colors.pink,
+              color: dateColor(todo.dateTime),
             ),
             const SizedBox(
               width: 10,
@@ -27,18 +30,18 @@ class TodoTileView extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Plan a trip to Finland',
+                    todo.title,
                     style: TextStyle(
                         fontWeight: FontWeight.w600, color: customBlue),
                   ),
                   const SizedBox(
                     height: 5,
                   ),
-                  const Text(
-                    'Katty and friends are waiting for you. I seriously need a new car. Katty and friends are waiting for you. I seriously need a new car',
+                  Text(
+                    todo.description,
                     maxLines: 3,
                     overflow: TextOverflow.ellipsis,
-                    style: TextStyle(color: Colors.grey, fontSize: 16),
+                    style: const TextStyle(color: Colors.grey, fontSize: 16),
                   )
                 ],
               ),
@@ -47,14 +50,14 @@ class TodoTileView extends StatelessWidget {
               width: 25,
             ),
             Row(
-              children: const [
+              children: [
                 Icon(
                   Icons.notifications,
-                  color: Colors.pink,
+                  color: dateColor(todo.dateTime),
                 ),
                 Text(
-                  'Yesterday',
-                  style: TextStyle(color: Colors.pink),
+                  todo.dateTime,
+                  style: TextStyle(color: dateColor(todo.dateTime)),
                 )
               ],
             )
