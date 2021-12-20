@@ -18,6 +18,8 @@ class _CreateTodoViewState extends State<CreateTodoView> {
   final GlobalKey<FormState> _formKey = GlobalKey();
   final TodoController _todoCOntroller = TodoController();
 
+  set isloading(bool isloading) {}
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -140,13 +142,36 @@ class _CreateTodoViewState extends State<CreateTodoView> {
                     if (_formKey.currentState!.validate()) {
                       String dateTime =
                           _dateController.text + " " + _timeController.text;
-                      // Todo isloading
+                      // Todo is loading
                       setState(() {});
 
                       bool isSuccessful = await _todoCOntroller.createTodo(
                           title: _titleController.text,
                           description: _descriptionController.text,
                           dateTime: dateTime);
+                      setState(() {
+                        isloading = false;
+                      });
+                      if (isSuccessful) {
+                        // do something
+                        _titleController.clear();
+                        _descriptionController.clear();
+                        _dateController.clear();
+                        _timeController.clear();
+                        SnackBar snackBar = const SnackBar(
+                            content: Text(
+                          'Todo created successfully',
+                          style: TextStyle(color: Colors.green),
+                        ));
+                        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                      }
+                    } else {
+                      SnackBar snackBar = const SnackBar(
+                          content: Text(
+                        'All fields are required',
+                        style: TextStyle(color: Colors.blue),
+                      ));
+                      ScaffoldMessenger.of(context).showSnackBar(snackBar);
                     }
                   },
                   child: const Text(
